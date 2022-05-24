@@ -63,7 +63,7 @@ export default {
         .then(() => {
           sweetalert({
             html: "Category <b>added</b> successfully",
-            icon: "Success",
+            icon: "success",
             showConfirmButton: true,
             showCancelButton: true,
           });
