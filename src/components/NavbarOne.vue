@@ -138,6 +138,7 @@
 </template>
 
 <script>
+// import swal from 'sweetalert';
 export default {
   name: "NavbarView",
   props: ["cartCount"],

@@ -18,8 +18,8 @@
             <textarea type="text" class="form-control" v-model="description" />
           </div>
           <div class="form-group">
-            <label>Image</label>
-            <input type="text" class="form-control" v-model="imageUrl" />
+            <label>ImageURL</label>
+            <input type="url" class="form-control" v-model="imageURL" />
           </div>
           <button type="button" class="btn btn-primary" @click="addCategory">
             Submit
@@ -34,11 +34,12 @@
 const axios = require("axios");
 const sweetalert = require("sweetalert");
 export default {
+  props: ["baseURL", "categories"],
   data() {
     return {
-      categoryName: "",
-      description: "",
-      imageUrl: "",
+      categoryName: null,
+      description: null,
+      imageURL: null,
     };
   },
   methods: {

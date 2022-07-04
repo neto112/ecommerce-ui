@@ -2,18 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1>Add New Product</h1>
+        <h4 class="pt-3">Add New Product</h4>
       </div>
     </div>
     <div class="row">
       <div class="col-3"></div>
-      <div class="col-6">
+      <div class="col-md-6 px-5 px-md-0">
         <form>
           <div class="form-group">
             <label>Category</label>
             <select class="form-control" v-model="categoryId" required>
               <option
-                v-for="category in categories"
+                v-for="category of categories"
                 :key="category.id"
                 :value="category.id"
               >
@@ -37,18 +37,21 @@
             <label>Price</label>
             <input type="number" v-model="price" class="form-control" />
           </div>
-          <button type="button" class="btn btn-primary" @click="addProduct">Add Product</button>
+          <button type="button" class="btn btn-primary" @click="addProduct">
+            Add Product
+          </button>
         </form>
+        {{categories}}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import swal from 'sweetalert';
+import axios from "axios";
+import swal from "sweetalert";
 export default {
-  props: ["baseURL", "categories"],
+  props: ["baseURL", "products", "categories"],
   data() {
     return {
       id: null,
@@ -68,13 +71,15 @@ export default {
         imageURL: this.imageURL,
         price: this.price,
       };
-      axios.post(this.baseURL+"product/add", newProduct)
-      .then((res) => {
-        this.$router.push({name: 'AdminProduct'});
+      axios.post(this.baseURL+"product/add", newProduct).then(() => {
+        this.$router.push({ name: "AdminProduct" });
         swal({
-          text: 'Product added'
-        })
-      })
+          text: "Product added",
+          icon: "success",
+        }).catch((err) => {
+          console.log("err", err);
+        });
+      });
     },
   },
 };
