@@ -1,15 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AddCategory from '../views/Category/AddCategory'
-import Category from '../views/Category/Category'
-import ProductView from '../views/Product/ProductView'
-import AddProduct from '../views/Product/AddProduct'
-import AdminView from '../views/AdminView'
+import AddCategory from '../views/Category/AddCategory.vue'
+import Category from '../views/Category/Category.vue'
+import ProductView from '../views/Product/ProductView.vue'
+import AddProduct from '../views/Product/AddProduct.vue'
+import AdminView from '../views/AdminView.vue'
+import EditCategory from '../views/Category/EditCategory.vue'
+import EditProduct from '../views/Product/EditProduct.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'HomeView',
     component: HomeView
   },
   {
@@ -28,6 +30,11 @@ const routes = [
     component: Category
   },
   {
+    path: '/admin/category/:id',
+    name: 'EditCategory',
+    component: EditCategory
+  },
+  {
     path: '/admin',
     name: 'Admin',
     component: AdminView
@@ -41,7 +48,12 @@ const routes = [
     path: '/admin/product/new',
     name: 'AddProduct',
     component: AddProduct
-  }
+  },
+  {
+    path: '/admin/product/:id',
+    name: 'EditProduct',
+    component: EditProduct
+  },
 ]
 
 const router = createRouter({

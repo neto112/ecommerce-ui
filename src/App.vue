@@ -1,13 +1,12 @@
 <template>
   <div id="nav">
     <NavbarOne />
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
   </div>
-  <router-view
+  <router-view v-if="categories && products"
     :baseURL="baseURL"
     :caregories="categories"
     :products="products"
+    @fetchData="fetchData"
   />
 </template>
 

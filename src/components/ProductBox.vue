@@ -9,10 +9,10 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
-      <p class="card-text">
-        {{ product.description.substring(0, 65) }}...
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <p class="card-text">{{ product.description.substring(0, 65) }}...</p>
+      <router-link :to="{ name: 'EditProduct', params: { id: product.id } }">
+        <button class="btn btn-primary">Edit</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@
 <script>
 export default {
   name: "ProductBox",
-  props: ['product']
+  props: ["product"],
 };
 </script>
 

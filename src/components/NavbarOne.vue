@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!--    Logo-->
-    <!-- <router-link class="navbar-brand" :to="{ name: 'HomeView' }">
-      <img id="logo" src="../assets/icon.png" />
-    </router-link> -->
+    <router-link class="navbar-brand" :to="{ name: 'HomeView' }">
+      <img id="logo" src="https://raw.githubusercontent.com/webtutsplus/ecommerce-vuejs/master/src/assets/icon.png" />
+    </router-link>
 
     <!--    Burger Button-->
     <button
@@ -64,12 +64,12 @@
             Browse
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <!-- <router-link class="dropdown-item" :to="{ name: 'HomeView' }"
+            <router-link class="dropdown-item" :to="{ name: 'HomeView' }"
               >Home</router-link
-            > -->
-            <!-- <router-link class="dropdown-item" :to="{ name: 'ProductView' }"
+            >
+            <router-link class="dropdown-item" :to="{ name: 'ProductView' }"
               >Product</router-link
-            > -->
+            >
             <router-link class="dropdown-item" :to="{ name: 'Category' }"
               >Category</router-link
             >
