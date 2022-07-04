@@ -4,10 +4,9 @@
       <div class="col-12 text-center">
         <h3 class="pt-3">Our Categories</h3>
         <router-link :to="{ name: 'AddCategory' }">
-          <button class="btn" style="float: right">Add Category</button>
+          <button class="btn" style="float: center">Add Category</button>
         </router-link>
       </div>
-      <div>{{ categories }}</div>
     </div>
     <div class="row">
       <div
@@ -21,30 +20,20 @@
   </div>
 </template>
 <script>
-const axios = require("axios");
 import CategoryBox from "../../components/Category/CategoryBox.vue";
 export default {
   // eslint-disable-next-line
   name: "Category",
+  props: ["categories"],
   components: { CategoryBox },
   data() {
     return {
-      baseURL: "https://limitless-lake-55070.herokuapp.com/",
-      categories: [],
+      baseURL: "https://limitless-lake-55070.herokuapp.com",
       // "https://limitless-lake-55070.herokuapp.com/swagger-ui.html"
     };
   },
-  methods: {
-    async getCategories() {
-      await axios
-        .get(`${this.baseURL}/category`)
-        .then((res) => (this.categories = res.data))
-        .catch((err) => console.log(err));
-    },
-  },
-  mounted() {
-    this.getCategories();
-  },
+  methods: {},
+  mounted() {},
 };
 </script>
 <style scoped></style>

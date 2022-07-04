@@ -16,10 +16,10 @@
           <div class="form-group">
             <label>Description</label>
             <textarea type="text" class="form-control" v-model="description" />
-            <div class="form-group">
-              <label>Image</label>
-              <input type="text" class="form-control" v-model="imageUrl" />
-            </div>
+          </div>
+          <div class="form-group">
+            <label>Image</label>
+            <input type="text" class="form-control" v-model="imageUrl" />
           </div>
           <button type="button" class="btn btn-primary" @click="addCategory">
             Submit
