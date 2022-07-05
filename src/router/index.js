@@ -11,7 +11,7 @@ import EditProduct from '../views/Product/EditProduct.vue'
 const routes = [
   {
     path: '/',
-    name: 'HomeView',
+    name: 'Home',
     component: HomeView
   },
   {
@@ -39,13 +39,18 @@ const routes = [
     name: 'Admin',
     component: AdminView
   },
+    {
+    path: '/product',
+    name: 'Product',
+    component: ProductView
+  },
   {
     path: '/admin/product',
     name: 'AdminProduct',
     component: ProductView
   },
   {
-    path: '/admin/product/new',
+    path: '/admin/product/add',
     name: 'AddProduct',
     component: AddProduct
   },

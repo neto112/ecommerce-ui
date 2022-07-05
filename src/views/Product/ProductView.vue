@@ -3,11 +3,13 @@
     <div class="row">
       <div class="col-12 text-center">
         <h4>Our Products</h4>
-        <router-link :to="{ name: 'AddProduct' }">
-          <button class="btn" style="float: right">
-            Add Product
-          </button></router-link
+        <router-link
+          id="add-product"
+          :to="{ name: 'AddProduct' }"
+          v-show="$route.name == 'AdminProduct'"
         >
+          <button class="btn">Add a new Product</button>
+        </router-link>
       </div>
     </div>
     <div class="row">
