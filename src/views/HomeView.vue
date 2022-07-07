@@ -60,7 +60,7 @@ export default {
     }
   },
   mounted() {
-    this.categorySize = Math.min(6, this.categories.length );
+    this.categorySize = Math.min(6, this.categories.length);
     this.productSize = Math.min(8, this.products.length);
   }
 };

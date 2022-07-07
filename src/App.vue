@@ -2,19 +2,22 @@
   <div id="nav">
     <NavbarOne />
   </div>
-  <router-view v-if="categories && products"
+  <router-view
+    v-if="categories && products"
     :baseURL="baseURL"
     :caregories="categories"
     :products="products"
     @fetchData="fetchData"
   />
+  <FooterOne />
 </template>
 
 <script>
 import NavbarOne from "./components/NavbarOne.vue";
+import FooterOne from "./components/FooterOne.vue";
 import axios from "axios";
 export default {
-  components: { NavbarOne },
+  components: { NavbarOne, FooterOne },
   data() {
     return {
       baseURL: "https://limitless-lake-55070.herokuapp.com/",
