@@ -22,8 +22,7 @@
 <script>
 import CategoryBox from "../../components/Category/CategoryBox.vue";
 export default {
-  // eslint-disable-next-line
-  name: "Category",
+  name: "CategoryView",
   props: ["categories"],
   components: { CategoryBox },
   data() {

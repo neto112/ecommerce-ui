@@ -46,8 +46,8 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
-import swal from 'sweetalert'
+import axios from "axios";
+import swal from "sweetalert";
 export default {
   data() {
     return {
@@ -56,22 +56,21 @@ export default {
     };
   },
   props: ["baseURL", "categories"],
-  methods : {
+  methods: {
     async editCategory() {
-      delete this.category["products"]
-      await axios.post(this.baseURL+"category/update/"+this.id, this.category)
-      .then(() => {
-          //sending the event to parent to handle
-        this.$emit("fetchData");
-        this.$router.push({name:'AdminCategory'});
-        swal({
-          text: "Category Updated Successfully!",
-          icon: "success",
-          closeOnClickOutside: false,
-        });
-      })
-      .catch(err => console.log(err));
-    }
+      delete this.category["products"];
+      await axios
+        .post(`${this.baseURL}category/update/${this.id}`, this.category)
+        .then(() => {
+          this.$emit("fetchData");
+          this.$router.push({ name: "Category" });
+          swal({
+            text: "category has been updated successfully",
+            icon: "success",
+          });
+        })
+        .catch((err) => console.log("err", err));
+    },
   },
   mounted() {
     this.id = this.$route.params.id;
