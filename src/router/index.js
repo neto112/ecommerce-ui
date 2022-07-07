@@ -8,6 +8,7 @@ import AddProduct from '../views/Product/AddProduct.vue'
 import EditCategory from '../views/Category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
 import ListProducts from '../views/Category/ListProducts.vue'
+import ShowDetails from '../views/Product/ShowDetails.vue'
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
     name: 'EditProduct',
     component: EditProduct
   },
+  {
+    path: '/product/show/:id',
+    name: 'ShowDetails',
+    component: ShowDetails
+  }
 ]
 
 const router = createRouter({
