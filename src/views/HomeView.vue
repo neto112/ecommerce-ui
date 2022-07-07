@@ -35,7 +35,6 @@
       </div>
 
       <!--      display products-->
-
       <div class="row">
         <div v-for="index in this.productSize" :key="index"
              class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
