@@ -4,11 +4,13 @@
   </div>
   <router-view
     v-if="categories && products"
+    style="min-height: 60vh"
     :baseURL="baseURL"
-    :caregories="categories"
+    :categories="categories"
     :products="products"
     @fetchData="fetchData"
-  />
+  >
+  </router-view>
   <FooterOne />
 </template>
 

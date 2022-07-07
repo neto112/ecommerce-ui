@@ -12,7 +12,7 @@
       <div
         v-for="category of categories"
         :key="category.id"
-        class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex"
+        class="col-xl-4 col-md-6 col-12 pt-3 d-flex"
       >
         <CategoryBox :category="category"> </CategoryBox>
       </div>
@@ -28,7 +28,6 @@ export default {
   data() {
     return {
       baseURL: "https://limitless-lake-55070.herokuapp.com",
-      // "https://limitless-lake-55070.herokuapp.com/swagger-ui.html"
     };
   },
   methods: {},

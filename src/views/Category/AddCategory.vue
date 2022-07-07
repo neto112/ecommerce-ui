@@ -62,10 +62,9 @@ export default {
       })
         .then(() => {
           sweetalert({
-            html: "Category <b>added</b> successfully",
+            text: "Category added successfully",
             icon: "success",
-            showConfirmButton: true,
-            showCancelButton: true,
+
           });
         })
         .catch((err) => {
@@ -75,6 +74,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>

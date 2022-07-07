@@ -2,18 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h4 class="pt-3">Add New Product</h4>
+        <h4>Add New Product</h4>
       </div>
     </div>
     <div class="row">
       <div class="col-3"></div>
-      <div class="col-md-6 px-5 px-md-0">
+      <div class="col-6">
         <form>
           <div class="form-group">
             <label>Category</label>
             <select class="form-control" v-model="categoryId" required>
               <option
-                v-for="category of categories"
+                v-for="category in categories"
                 :key="category.id"
                 :value="category.id"
               >
@@ -41,8 +41,8 @@
             Add Product
           </button>
         </form>
-        {{categories}}
       </div>
+      <div class="col-3"></div>
     </div>
   </div>
 </template>
@@ -71,7 +71,7 @@ export default {
         imageURL: this.imageURL,
         price: this.price,
       };
-      axios.post(this.baseURL+"product/add", newProduct).then(() => {
+      axios.post(this.baseURL + "product/add", newProduct).then(() => {
         this.$router.push({ name: "AdminProduct" });
         swal({
           text: "Product added",

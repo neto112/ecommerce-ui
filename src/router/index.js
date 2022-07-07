@@ -3,10 +3,11 @@ import HomeView from '../views/HomeView.vue'
 import AddCategory from '../views/Category/AddCategory.vue'
 import CategoryView from '../views/Category/CategoryView.vue'
 import ProductView from '../views/Product/ProductView.vue'
-import AddProduct from '../views/Product/AddProduct.vue'
 import AdminView from '../views/AdminView.vue'
+import AddProduct from '../views/Product/AddProduct.vue'
 import EditCategory from '../views/Category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
+import ListProducts from '../views/Category/ListProducts.vue'
 
 const routes = [
   {
@@ -15,9 +16,9 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/category/show/:id',
+    name: 'ListProducts',
+    component: ListProducts
   },
   {
     path: '/admin/category/add',
@@ -39,18 +40,13 @@ const routes = [
     name: 'Admin',
     component: AdminView
   },
-    {
-    path: '/product',
-    name: 'Product',
-    component: ProductView
-  },
   {
     path: '/admin/product',
     name: 'AdminProduct',
     component: ProductView
   },
   {
-    path: '/admin/product/add',
+    path: '/admin/product/new',
     name: 'AddProduct',
     component: AddProduct
   },
