@@ -17,7 +17,6 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!--      Search Bar-->
       <form class="form-inline ml-auto mr-auto">
@@ -88,8 +87,8 @@
           >
             Accounts
           </a>
-          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- <router-link
               class="dropdown-item"
               v-if="!token"
               :to="{ name: 'Signin' }"
@@ -100,23 +99,23 @@
             >
             <router-link class="dropdown-item" :to="{ name: 'Admin' }"
               >Admin</router-link
-            >
-            <router-link
+            > -->
+            <!-- <router-link
               class="dropdown-item"
               v-if="!token"
               :to="{ name: 'Signin' }"
               >Log In</router-link
-            >
+            > -->
+              <!-- v-if="!token" -->
             <router-link
               class="dropdown-item"
-              v-if="!token"
               :to="{ name: 'Signup' }"
               >Sign Up</router-link
             >
             <a class="dropdown-item" v-if="token" href="#" @click="signout"
               >Sign Out</a
             >
-          </div> -->
+          </div>
         </li>
 
         <!-- <li class="nav-item">
@@ -138,7 +137,7 @@
 </template>
 
 <script>
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 export default {
   name: "NavbarView",
   props: ["cartCount"],
@@ -148,17 +147,17 @@ export default {
     };
   },
   methods: {
-    // signout() {
-    //   localStorage.removeItem("token");
-    //   this.token = null;
-    //   this.$emit("resetCartCount");
-      // this.$router.push({ name: "HomeView" });
-      // swal({
-      //   text: "Logged you out. Visit Again",
-      //   icon: "success",
-      //   closeOnClickOutside: false,
-      // });
-    // },
+    signout() {
+      localStorage.removeItem("token");
+      this.token = null;
+      this.$emit("resetCartCount");
+      this.$router.push({ name: "HomeView" });
+      swal({
+        text: "Logged you out. Visit Again",
+        icon: "success",
+        closeOnClickOutside: false,
+      });
+    },
   },
   mounted() {
     this.token = localStorage.getItem("token");
