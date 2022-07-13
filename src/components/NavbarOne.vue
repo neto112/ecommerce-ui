@@ -2,7 +2,10 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!--    Logo-->
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
-      <img id="logo" src="https://raw.githubusercontent.com/webtutsplus/ecommerce-vuejs/master/src/assets/icon.png" />
+      <img
+        id="logo"
+        src="https://raw.githubusercontent.com/webtutsplus/ecommerce-vuejs/master/src/assets/icon.png"
+      />
     </router-link>
 
     <!--    Burger Button-->
@@ -50,7 +53,7 @@
 
       <!--      DropDowns-->
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a
             class="nav-link text-light dropdown-toggle"
             href="#"
@@ -73,7 +76,7 @@
               >Category</router-link
             >
           </div>
-        </li>
+        </li> -->
 
         <li class="nav-item dropdown">
           <a
@@ -100,18 +103,12 @@
             <router-link class="dropdown-item" :to="{ name: 'Admin' }"
               >Admin</router-link
             > -->
-            <!-- <router-link
-              class="dropdown-item"
-              v-if="!token"
-              :to="{ name: 'Signin' }"
-              >Log In</router-link
-            > -->
-              <!-- v-if="!token" -->
-            <router-link
-              class="dropdown-item"
-              :to="{ name: 'Signup' }"
-              >Sign Up</router-link
-            >
+            <router-link class="dropdown-item" :to="{ name: 'Signup' }"
+              >Sign Up
+            </router-link>
+            <router-link class="dropdown-item" :to="{ name: 'Signin' }"
+              >Sign In
+            </router-link>
             <a class="dropdown-item" v-if="token" href="#" @click="signout"
               >Sign Out</a
             >
@@ -137,31 +134,8 @@
 </template>
 
 <script>
-import swal from 'sweetalert';
 export default {
-  name: "NavbarView",
-  props: ["cartCount"],
-  data() {
-    return {
-      token: null,
-    };
-  },
-  methods: {
-    signout() {
-      localStorage.removeItem("token");
-      this.token = null;
-      this.$emit("resetCartCount");
-      this.$router.push({ name: "HomeView" });
-      swal({
-        text: "Logged you out. Visit Again",
-        icon: "success",
-        closeOnClickOutside: false,
-      });
-    },
-  },
-  mounted() {
-    this.token = localStorage.getItem("token");
-  },
+  name: "NavbarOne",
 };
 </script>
 
@@ -171,31 +145,7 @@ export default {
   margin-left: 20px;
   margin-right: 20px;
 }
-
 .nav-link {
   color: rgba(255, 255, 255);
-}
-
-#search-button-navbar {
-  background-color: #febd69;
-  border-color: #febd69;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-#nav-cart-count {
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15px;
-  height: 15px;
-  font-size: 15px;
-  margin-left: 10px;
-}
-#cart {
-  position: relative;
 }
 </style>
