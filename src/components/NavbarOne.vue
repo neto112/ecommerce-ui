@@ -96,22 +96,31 @@
               v-if="!token"
               :to="{ name: 'Signin' }"
               >Wishlist</router-link
-            >
-            <router-link class="dropdown-item" v-else :to="{ name: 'Wishlist' }"
-              >Wishlist</router-link
-            >
-            <router-link class="dropdown-item" :to="{ name: 'Admin' }"
-              >Admin</router-link
             > -->
-            <router-link class="dropdown-item" :to="{ name: 'Signup' }"
+            <router-link
+              v-if="token"
+              class="dropdown-item"
+              :to="{ name: 'WishList' }"
+              >Wishlist
+            </router-link>
+            <!-- <router-link class="dropdown-item" :to="{ name: 'Admin' }"
+              >Admin</router-link
+            >  -->
+            <router-link
+              v-if="!token"
+              class="dropdown-item"
+              :to="{ name: 'Signup' }"
               >Sign Up
             </router-link>
-            <router-link class="dropdown-item" :to="{ name: 'Signin' }"
+            <router-link
+              v-if="!token"
+              class="dropdown-item"
+              :to="{ name: 'Signin' }"
               >Sign In
             </router-link>
             <a class="dropdown-item" v-if="token" href="#" @click="signout"
-              >Sign Out</a
-            >
+              >Sign Out
+            </a>
           </div>
         </li>
 
@@ -136,6 +145,20 @@
 <script>
 export default {
   name: "NavbarOne",
+  data() {
+    return {
+      token: null,
+    };
+  },
+  methods: {
+    signout() {
+      localStorage.removeItem("token");
+      this.token = null;
+    },
+  },
+  mounted() {
+    this.token = localStorage.getItem("token");
+  },
 };
 </script>
 

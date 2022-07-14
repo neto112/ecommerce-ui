@@ -9,6 +9,7 @@ import EditCategory from '../views/Category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
 import ListProducts from '../views/Category/ListProducts.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
+import WishList from '../views/Product/WishList.vue'
 import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
 
@@ -72,7 +73,12 @@ const routes = [
     path: '/signin',
     name: 'Signin',
     component: SignIn
-  }
+  },
+  {
+    path: '/wishlist',
+    name: 'WishList',
+    component: WishList
+  },
 ]
 
 const router = createRouter({
