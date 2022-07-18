@@ -53,7 +53,7 @@
 
       <!--      DropDowns-->
       <ul class="navbar-nav ml-auto">
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a
             class="nav-link text-light dropdown-toggle"
             href="#"
@@ -76,7 +76,7 @@
               >Category</router-link
             >
           </div>
-        </li> -->
+        </li>
 
         <li class="nav-item dropdown">
           <a
@@ -129,14 +129,14 @@
             >Orders</router-link
           >
         </li> -->
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <div id="cart">
             <span id="nav-cart-count">{{ cartCount }}</span>
             <router-link class="text-light" :to="{ name: 'Cart' }"
-              ><i class="fa fa-shopping-cart" style="font-size:36px"></i
+              ><i class="fa fa-shopping-cart" style="font-size: 36px"></i
             ></router-link>
           </div>
-        </li> -->
+        </li>
       </ul>
     </div>
   </nav>
