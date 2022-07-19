@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <NavbarOne />
+    <NavbarOne :cartCount="cartCount" @resetCartCount="resetCartCount" />
   </div>
   <router-view
     v-if="categories && products"
@@ -13,7 +13,6 @@
   </router-view>
   <FooterOne />
 </template>
-
 <script>
 import NavbarOne from "./components/NavbarOne.vue";
 import FooterOne from "./components/FooterOne.vue";
@@ -23,8 +22,9 @@ export default {
   data() {
     return {
       baseURL: "https://limitless-lake-55070.herokuapp.com/",
-      products: [],
-      categories: [],
+      products: null,
+      categories: null,
+      cartCount: 0,
     };
   },
   methods: {
@@ -42,33 +42,30 @@ export default {
           this.products = res.data;
         })
         .catch((err) => console.log("err", err));
+
+      if (this.token) {
+        axios
+          .get(`${this.baseURL}cart/?token=${this.token}`)
+          .then((res) => {
+            const result = res.data;
+            this.cartCount = result.cartItems.length;
+          })
+          .catch((err) => console.log("err", err));
+      }
+    },
+    resetCartCount() {
+      this.cartCount = 0;
     },
   },
   mounted() {
+    this.token = localStorage.getItem("token");
     this.fetchData();
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+html {
+  overflow-y: scroll;
 }
 </style>

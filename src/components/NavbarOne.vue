@@ -130,7 +130,7 @@
           >
         </li> -->
         <li class="nav-item">
-          <div id="cart">
+          <div id="cart" style="position: relative">
             <span id="nav-cart-count">{{ cartCount }}</span>
             <router-link class="text-light" :to="{ name: 'Cart' }"
               ><i class="fa fa-shopping-cart" style="font-size: 36px"></i
@@ -143,8 +143,10 @@
 </template>
 
 <script>
+import swal from "sweetalert";
 export default {
   name: "NavbarOne",
+  props: ["cartCount"],
   data() {
     return {
       token: null,
@@ -154,6 +156,12 @@ export default {
     signout() {
       localStorage.removeItem("token");
       this.token = null;
+      swal({
+        text: "Logged you out. Visit again",
+        icon: "success",
+      });
+      this.$emit("resetCartCount");
+      this.$router.push({ name: "Home" });
     },
   },
   mounted() {
@@ -170,5 +178,26 @@ export default {
 }
 .nav-link {
   color: rgba(255, 255, 255);
+}
+
+#search-button-navbar {
+  background-color: #febd69;
+  border-color: #febd69;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+#nav-cart-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  font-size: 15px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-left: 10px;
 }
 </style>

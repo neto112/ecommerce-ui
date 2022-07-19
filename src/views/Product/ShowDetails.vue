@@ -18,7 +18,9 @@
             <input type="number" class="form-cont" v-model="quantity" />
           </div>
           <div class="input-group col-md-3 col-4 p-0">
-            <button class="btn" id="add-to-cart-button" @click="addToCart">Add to Cart</button>
+            <button class="btn" id="add-to-cart-button" @click="addToCart">
+              Add to Cart
+            </button>
           </div>
         </div>
         <div class="features pt-3">
@@ -108,6 +110,7 @@ export default {
               text: "Product added in cart",
               icon: "success",
             });
+            this.$emit("fetchData");
           }
         })
         .catch((err) => console.log("err", err));
