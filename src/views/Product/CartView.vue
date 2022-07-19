@@ -64,7 +64,7 @@
 
     <!-- display total price -->
     <div class="total-cost pt-2 text-right">
-      <h5>Total: ${{ totalCost.toFixed(2) }}</h5>
+      <h5>Total: ${{ totalcost.toFixed(2) }}</h5>
       <button
         :disabled="isDisabled()"
         type="button"
@@ -84,7 +84,7 @@ export default {
     return {
       cartItems: [],
       token: null,
-      totalCost: 0,
+      totalcost: 0,
     };
   },
   props: ["baseURL"],

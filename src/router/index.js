@@ -13,6 +13,9 @@ import WishList from '../views/Product/WishList.vue'
 import SignUp from '../views/SignUp.vue'
 import SignIn from '../views/SignIn.vue'
 import CartView from '../views/Product/CartView.vue'
+import SuccessView from '../views/payment/SuccessView.vue'
+import FailedView from '../views/payment/FailedView.vue'
+import CheckOut from '../views/Checkout/CheckOut.vue'
 
 const routes = [
   {
@@ -84,6 +87,21 @@ const routes = [
     path: '/cart',
     name: 'Cart',
     component: CartView
+  },
+  {
+    path: '/payment/success',
+    name: 'PaymentSuccess',
+    component: SuccessView
+  },
+  {
+    path: '/payment/failed',
+    name: 'PaymentFailed',
+    component: FailedView
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: CheckOut
   },
 ]
 
